@@ -21,6 +21,8 @@ export default class TouchSweep {
 	onEnd(event) {
 		this.coords.endX = event.screenX;
 		this.coords.endY = event.screenY;
+		
+		this.dispatch();
 	}
 
 	bind() {
@@ -32,7 +34,7 @@ export default class TouchSweep {
 		this.element.removeEventListener('touchstart', this.onStart, false);
 		this.element.removeEventListener('touchend', this.onEnd, false);
 
-		this.dispatch();
+		
 	}
 
 	getEventName() {
