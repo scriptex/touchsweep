@@ -10,7 +10,11 @@ export default class TouchSweep {
 		this.eventData = data;
 
 		this.onStart = this.onStart.bind(this);
-		this.onEnd = this.onStart.bind(this);
+		this.onEnd = this.onStart.bind(this); 
+		
+		this.bind(); 
+		
+		return this;
 	}
 
 	onStart(event) {
@@ -33,10 +37,8 @@ export default class TouchSweep {
 	unbind() {
 		this.element.removeEventListener('touchstart', this.onStart, false);
 		this.element.removeEventListener('touchend', this.onEnd, false);
-
-		
 	}
-
+	
 	getEventName() {
 		const { startX, startY, endX, endY } = this.coords;
 
