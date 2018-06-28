@@ -9,8 +9,8 @@ export default class TouchSweep {
 		};
 		this.eventData = data;
 
-		this.onStart = this.onStart.add(this);
-		this.onEnd = this.onStart.add(this);
+		this.onStart = this.onStart.bind(this);
+		this.onEnd = this.onStart.bind(this);
 	}
 
 	onStart(event) {
