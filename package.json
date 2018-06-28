@@ -1,0 +1,22 @@
+{
+	"name": "touchsweep",
+	"version": "0.0.1",
+	"description": "Super tiny vanilla JS module to detect swipe direction",
+	"keywords": [
+		"Touch",
+		"Event",
+		"Touch Events",
+		"touchstart",
+		"touchend",
+		"touchmove",
+		"swipe"
+	],
+	"main": "index.js",
+	"repository": "git@github.com:scriptex/touchsweep.git",
+	"bugs": {
+		"url": "https://github.com/scriptex/touchsweep/issues",
+		"email": "scriptex.bg@gmail.com"
+	},
+	"author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
+	"license": "MIT"
+}
