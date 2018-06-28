@@ -31,6 +31,8 @@ export default class TouchSweep {
 	unbind() {
 		this.element.removeEventListener('touchstart', this.onStart, false);
 		this.element.removeEventListener('touchend', this.onEnd, false);
+
+		this.dispatch();
 	}
 
 	getEventName() {
