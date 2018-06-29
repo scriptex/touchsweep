@@ -11,7 +11,10 @@
     "touchmove",
     "swipe"
   ],
-  "main": "index.js",
+  "main": "dist/touchsweep.js",
+  "scripts": {
+    "build": "webpack"
+  },
   "repository": "git@github.com:scriptex/touchsweep.git",
   "bugs": {
     "url": "https://github.com/scriptex/touchsweep/issues",
