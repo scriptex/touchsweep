@@ -1,31 +1,32 @@
 export default class TouchSweep {
-	constructor(element = document.body, data = {}) {
+	constructor(element = document.body, data = {}, threshold = 40) {
 		this.element = element;
+		this.eventData = data;
+		this.threshold = threshold;
 		this.coords = {
 			startX: 0,
 			startY: 0,
 			endX: 0,
 			endY: 0
 		};
-		this.eventData = data;
 
 		this.onStart = this.onStart.bind(this);
-		this.onEnd = this.onStart.bind(this); 
-		
-		this.bind(); 
-		
+		this.onEnd = this.onEnd.bind(this);
+
+		this.bind();
+
 		return this;
 	}
 
 	onStart(event) {
-		this.coords.startX = event.screenX;
-		this.coords.startY = event.screenY;
+		this.coords.startX = event.changedTouches[0].screenX;
+		this.coords.startY = event.changedTouches[0].screenY;
 	}
 
 	onEnd(event) {
-		this.coords.endX = event.screenX;
-		this.coords.endY = event.screenY;
-		
+		this.coords.endX = event.changedTouches[0].screenX;
+		this.coords.endY = event.changedTouches[0].screenY;
+
 		this.dispatch();
 	}
 
@@ -38,27 +39,28 @@ export default class TouchSweep {
 		this.element.removeEventListener('touchstart', this.onStart, false);
 		this.element.removeEventListener('touchend', this.onEnd, false);
 	}
-	
+
 	getEventName() {
+		const threshold = this.threshold;
 		const { startX, startY, endX, endY } = this.coords;
 
-		if (endX < startX) {
+		if (endX < startX && Math.abs(endY - startY) < threshold) {
 			return 'swipeleft';
 		}
 
-		if (endX > startX) {
+		if (endX > startX && Math.abs(endX - startX) > threshold) {
 			return 'swiperight';
 		}
 
-		if (endY < startY) {
-			return 'swipedown';
-		}
-
-		if (endY > startY) {
+		if (endY < startY && Math.abs(endX - startX) < threshold) {
 			return 'swipeup';
 		}
 
-		if (endY === startY) {
+		if (endY > startY && Math.abs(endY - startY) > threshold) {
+			return 'swipedown';
+		}
+
+		if (endY === startY && endX === startX) {
 			return 'tap';
 		}
 
@@ -73,8 +75,10 @@ export default class TouchSweep {
 		}
 
 		// TODO: Check browser support
-		const event = new CustomEvent(eventName);
+		const event = new CustomEvent(eventName, {
+			detail: this.eventData
+		});
 
-		this.element.dispatchEvent(event, this.eventData);
+		this.element.dispatchEvent(event);
 	}
 }
