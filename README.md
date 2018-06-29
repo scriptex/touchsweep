@@ -95,7 +95,7 @@ IE 10+ support is planned in the near future.
 
 There is a simple demo illustrating how the AnimateMe library works.
 
-Check it out [here](https://github.com/scriptex/animateme/blob/master/demo/index.html)
+Check it out [here](https://github.com/scriptex/touchsweep/blob/master/demo/index.html)
 
 ## LICENSE
 
