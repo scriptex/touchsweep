@@ -1,5 +1,3 @@
-[![GitHub stars](https://img.shields.io/github/stars/scriptex/touchsweep.svg?style=social&label=Stars)](https://github.com/scriptex/touchsweep)
-[![GitHub forks](https://img.shields.io/github/forks/scriptex/touchsweep.svg?style=social&label=Fork)](https://github.com/scriptex/touchsweep/network#fork-destination-box)
 [![GitHub release](https://img.shields.io/github/release/scriptex/touchsweep.svg)](https://github.com/scriptex/touchsweep/releases/latest)
 [![GitHub issues](https://img.shields.io/github/issues/scriptex/touchsweep.svg)](https://github.com/scriptex/touchsweep/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/touchsweep.svg)](https://github.com/scriptex/touchsweep/commits/master)
@@ -7,13 +5,8 @@
 [![Build Status](https://travis-ci.org/scriptex/touchsweep.svg?branch=master)](https://travis-ci.org/scriptex/touchsweep)
 [![npm](https://img.shields.io/npm/dt/touchsweep.svg)](https://www.npmjs.com/package/touchsweep)
 [![npm](https://img.shields.io/npm/v/touchsweep.svg)](https://www.npmjs.com/package/touchsweep)
-[![license](https://img.shields.io/github/license/scriptex/touchsweep.svg)](https://github.com/scriptex/touchsweep)
 [![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/touchsweep/README.md)](https://github.com/scriptex/touchsweep/)
-[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/scriptex/touchsweep/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/scriptex/touchsweep/graphs/commit-activity)
 [![Greenkeeper badge](https://badges.greenkeeper.io/scriptex/touchsweep.svg)](https://greenkeeper.io/)
-
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/scriptex/)
 
 # TouchSweep
 
