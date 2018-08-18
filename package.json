@@ -1,6 +1,6 @@
 {
   "name": "touchsweep",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Super tiny vanilla JS module to detect swipe direction",
   "keywords": [
     "Touch",
@@ -13,7 +13,9 @@
   ],
   "main": "dist/touchsweep.js",
   "scripts": {
-    "build": "webpack"
+    "dist": "babel src/touchsweep.js --out-file dist/touchsweep.js",
+    "minify": "babel src/touchsweep.js --out-file dist/touchsweep.min.js --presets minify,@babel/env",
+    "build": "npm run dist && npm run minify"
   },
   "repository": "git@github.com:scriptex/touchsweep.git",
   "bugs": {
@@ -23,13 +25,21 @@
   "author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.51",
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "@babel/preset-stage-2": "^7.0.0-beta.51",
-    "babel-loader": "^8.0.0-beta",
-    "unminified-webpack-plugin": "^2.0.0",
-    "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.8"
-  }
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/plugin-proposal-class-properties": "7.0.0-rc.1",
+    "@babel/plugin-proposal-decorators": "7.0.0-rc.1",
+    "@babel/plugin-proposal-export-namespace-from": "7.0.0-rc.1",
+    "@babel/plugin-proposal-function-sent": "7.0.0-rc.1",
+    "@babel/plugin-proposal-json-strings": "7.0.0-rc.1",
+    "@babel/plugin-proposal-numeric-separator": "7.0.0-rc.1",
+    "@babel/plugin-proposal-throw-expressions": "7.0.0-rc.1",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0-rc.1",
+    "@babel/plugin-syntax-import-meta": "7.0.0-rc.1",
+    "@babel/plugin-transform-modules-umd": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-minify": "^0.4.3"
+  },
+  "dependencies": {}
 }
