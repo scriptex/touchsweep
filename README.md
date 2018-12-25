@@ -6,7 +6,6 @@
 [![npm](https://img.shields.io/npm/dt/touchsweep.svg)](https://www.npmjs.com/package/touchsweep)
 [![npm](https://img.shields.io/npm/v/touchsweep.svg)](https://www.npmjs.com/package/touchsweep)
 [![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/touchsweep/README.md)](https://github.com/scriptex/touchsweep/)
-[![Greenkeeper badge](https://badges.greenkeeper.io/scriptex/touchsweep.svg)](https://greenkeeper.io/)
 
 # TouchSweep
 
