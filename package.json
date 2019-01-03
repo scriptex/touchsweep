@@ -1,45 +1,45 @@
 {
-  "name": "touchsweep",
-  "version": "0.2.0",
-  "description": "Super tiny vanilla JS module to detect swipe direction",
-  "keywords": [
-    "Touch",
-    "Event",
-    "Touch Events",
-    "touchstart",
-    "touchend",
-    "touchmove",
-    "swipe"
-  ],
-  "main": "dist/touchsweep.js",
-  "scripts": {
-    "dist": "babel src/touchsweep.js --out-file dist/touchsweep.js",
-    "minify": "babel src/touchsweep.js --out-file dist/touchsweep.min.js --presets minify,@babel/env",
-    "build": "npm run dist && npm run minify"
-  },
-  "repository": "git@github.com:scriptex/touchsweep.git",
-  "bugs": {
-    "url": "https://github.com/scriptex/touchsweep/issues",
-    "email": "scriptex.bg@gmail.com"
-  },
-  "author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "7.2.3",
-    "@babel/core": "7.2.2",
-    "@babel/plugin-proposal-class-properties": "7.2.3",
-    "@babel/plugin-proposal-decorators": "7.2.3",
-    "@babel/plugin-proposal-export-namespace-from": "7.2.0",
-    "@babel/plugin-proposal-function-sent": "7.2.0",
-    "@babel/plugin-proposal-json-strings": "7.2.0",
-    "@babel/plugin-proposal-numeric-separator": "7.2.0",
-    "@babel/plugin-proposal-throw-expressions": "7.2.0",
-    "@babel/plugin-syntax-dynamic-import": "7.2.0",
-    "@babel/plugin-syntax-import-meta": "7.2.0",
-    "@babel/plugin-transform-modules-umd": "7.2.0",
-    "@babel/preset-env": "7.2.3",
-    "babel-loader": "8.0.4",
-    "babel-minify": "0.5.0"
-  },
-  "dependencies": {}
+	"name": "touchsweep",
+	"version": "1.0.0",
+	"description": "Super tiny vanilla JS module to detect swipe direction",
+	"keywords": [
+		"Touch",
+		"Event",
+		"Touch Events",
+		"touchstart",
+		"touchend",
+		"touchmove",
+		"swipe"
+	],
+	"main": "dist/touchsweep.js",
+	"scripts": {
+		"dist": "babel src/touchsweep.js --out-file dist/touchsweep.js",
+		"minify": "babel src/touchsweep.js --out-file dist/touchsweep.min.js --presets minify,@babel/env",
+		"build": "npm run dist && npm run minify"
+	},
+	"repository": "git@github.com:scriptex/touchsweep.git",
+	"bugs": {
+		"url": "https://github.com/scriptex/touchsweep/issues",
+		"email": "scriptex.bg@gmail.com"
+	},
+	"author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/cli": "7.2.3",
+		"@babel/core": "7.2.2",
+		"@babel/plugin-proposal-class-properties": "7.2.3",
+		"@babel/plugin-proposal-decorators": "7.2.3",
+		"@babel/plugin-proposal-export-namespace-from": "7.2.0",
+		"@babel/plugin-proposal-function-sent": "7.2.0",
+		"@babel/plugin-proposal-json-strings": "7.2.0",
+		"@babel/plugin-proposal-numeric-separator": "7.2.0",
+		"@babel/plugin-proposal-throw-expressions": "7.2.0",
+		"@babel/plugin-syntax-dynamic-import": "7.2.0",
+		"@babel/plugin-syntax-import-meta": "7.2.0",
+		"@babel/plugin-transform-modules-umd": "7.2.0",
+		"@babel/preset-env": "7.2.3",
+		"babel-loader": "8.0.4",
+		"babel-minify": "0.5.0"
+	},
+	"dependencies": {}
 }
