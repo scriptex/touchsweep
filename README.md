@@ -27,7 +27,13 @@ yarn add touchsweep
 
 or
 
-just download this repository and use the files located in `dist` folder.
+just download this repository and use the files located in `dist` folder
+
+or include it from unpkg.com
+
+```html
+<script src="https://unpkg.com/touchsweep"></script>
+```
 
 ## Usage
 
