@@ -37,3 +37,5 @@ yarn.lock
 # Config files
 .babelrc
 renovate.json
+_config.yml
+_.config.yml
