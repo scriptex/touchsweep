@@ -10,13 +10,13 @@
     factory(mod.exports);
     global.touchsweep = mod.exports;
   }
-})(this, function (_exports) {
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports.default = void 0;
+  _exports["default"] = void 0;
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24,9 +24,7 @@
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-  var TouchSweep =
-  /*#__PURE__*/
-  function () {
+  var TouchSweep = /*#__PURE__*/function () {
     function TouchSweep() {
       var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
       var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -84,7 +82,7 @@
             endX = _this$coords.endX,
             endY = _this$coords.endY;
 
-        if (endX < startX && Math.abs(endY - startY) < threshold) {
+        if (endX < startX && Math.abs(endX - startX) > threshold) {
           return 'swipeleft';
         }
 
@@ -92,7 +90,7 @@
           return 'swiperight';
         }
 
-        if (endY < startY && Math.abs(endX - startX) < threshold) {
+        if (endY < startY && Math.abs(endY - startY) > threshold) {
           return 'swipeup';
         }
 
@@ -126,5 +124,5 @@
     return TouchSweep;
   }();
 
-  _exports.default = TouchSweep;
+  _exports["default"] = TouchSweep;
 });
