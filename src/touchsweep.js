@@ -44,7 +44,7 @@ export default class TouchSweep {
 		const threshold = this.threshold;
 		const { startX, startY, endX, endY } = this.coords;
 
-		if (endX < startX && Math.abs(endY - startY) < threshold) {
+		if (endX < startX && Math.abs(endX - startX) > threshold) {
 			return 'swipeleft';
 		}
 
@@ -52,7 +52,7 @@ export default class TouchSweep {
 			return 'swiperight';
 		}
 
-		if (endY < startY && Math.abs(endX - startX) < threshold) {
+		if (endY < startY && Math.abs(endY - startY) > threshold) {
 			return 'swipeup';
 		}
 
