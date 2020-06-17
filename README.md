@@ -2,7 +2,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/scriptex/touchsweep.svg)](https://github.com/scriptex/touchsweep/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/touchsweep.svg)](https://github.com/scriptex/touchsweep/commits/master)
 [![Github file size](https://img.shields.io/github/size/scriptex/touchsweep/dist/touchsweep.min.js.svg)](https://github.com/scriptex/touchsweep)
-[![Build Status](https://travis-ci.org/scriptex/touchsweep.svg?branch=master)](https://travis-ci.org/scriptex/touchsweep)
+[![Build Status](https://travis-ci.com/scriptex/touchsweep.svg?branch=master)](https://travis-ci.com/scriptex/touchsweep)
 [![npm](https://img.shields.io/npm/dt/touchsweep.svg)](https://www.npmjs.com/package/touchsweep)
 [![npm](https://img.shields.io/npm/v/touchsweep.svg)](https://www.npmjs.com/package/touchsweep)
 [![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/touchsweep/README.md)](https://github.com/scriptex/touchsweep/)
