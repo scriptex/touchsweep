@@ -29,7 +29,7 @@
 		"@babel/core": "7.12.3",
 		"@babel/plugin-transform-modules-umd": "7.12.1",
 		"@babel/preset-env": "7.12.1",
-		"babel-loader": "8.1.0",
+		"babel-loader": "8.2.1",
 		"babel-minify": "0.5.1"
 	},
 	"dependencies": {}
