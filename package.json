@@ -25,10 +25,10 @@
 	"author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
 	"license": "MIT",
 	"devDependencies": {
-		"@babel/cli": "7.12.1",
-		"@babel/core": "7.12.3",
+		"@babel/cli": "7.12.7",
+		"@babel/core": "7.12.7",
 		"@babel/plugin-transform-modules-umd": "7.12.1",
-		"@babel/preset-env": "7.12.1",
+		"@babel/preset-env": "7.12.7",
 		"babel-loader": "8.2.1",
 		"babel-minify": "0.5.1"
 	},
