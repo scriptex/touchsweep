@@ -25,6 +25,14 @@
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
   var TouchSweep = /*#__PURE__*/function () {
+    /**
+     * Create a new TouchSweep instance
+     * @constructor
+     * @param {HTMLElement} element
+     * @param {any} data
+     * @param {number} threshold
+     * @return {TouchSweep}
+     */
     function TouchSweep() {
       var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
       var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -111,8 +119,7 @@
 
         if (!eventName) {
           return;
-        } // TODO: Check browser support
-
+        }
 
         var event = new CustomEvent(eventName, {
           detail: this.eventData
