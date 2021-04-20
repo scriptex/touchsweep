@@ -1,4 +1,12 @@
 export default class TouchSweep {
+	/**
+	 * Create a new TouchSweep instance
+	 * @constructor
+	 * @param {HTMLElement} element
+	 * @param {any} data
+	 * @param {number} threshold
+	 * @return {TouchSweep}
+	 */
 	constructor(element = document.body, data = {}, threshold = 40) {
 		this.element = element;
 		this.eventData = data;
@@ -74,7 +82,6 @@ export default class TouchSweep {
 			return;
 		}
 
-		// TODO: Check browser support
 		const event = new CustomEvent(eventName, {
 			detail: this.eventData
 		});
