@@ -11,8 +11,6 @@
 
 Super tiny vanilla JS module to detect swipe direction and trigger custom events accordingly.
 
-This module works on touch-enabled devices only.
-
 ## Install
 
 ```sh
@@ -46,7 +44,7 @@ const data = {
 };
 const touchThreshold = 20;
 
-new TouchSweep(area, data, touchThreshold);
+const touchSwipeInstance = new TouchSweep(area, data, touchThreshold);
 
 // Then listen for custom swipe events and do your magic:
 
@@ -84,10 +82,29 @@ The module constructor accepts three (3) arguments:
 -   `eventData`: A plain JS object. Default is `{}`
 -   `threshold`: How many pixels to count until an event is fired. Default is 40
 
+## API
+
+TouchSweep provides a minimal API for you to use.
+
+The `TouchSwipe` instance exposes two public methods which allow you to add or to remove all event listeners responsible for the module functionality.
+
+This is useful in cases where you want to remove the `TouchSwipe` container/area from the DOM and prevent possible memory leaks by removing all event listeners related to this DOM element.
+
+In order to remove all previously attached event listeners:
+
+```javascript
+touchSwipeInstance.unbind();
+```
+
+In order to add all previously removed event listeners:
+
+```javascript
+touchSwipeInstance.bind();
+```
+
 ## Supported Browsers
 
 Currently all evergreen browsers are supported.
-IE 10+ support is planned in the near future.
 
 ## Demo
 
