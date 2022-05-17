@@ -801,15 +801,7 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     babel-plugin-dynamic-import-node "^2.3.3"
 
-"@babel/plugin-transform-modules-umd@7.16.7":
-  version "7.16.7"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-umd/-/plugin-transform-modules-umd-7.16.7.tgz#23dad479fa585283dbd22215bff12719171e7618"
-  integrity sha512-EMh7uolsC8O4xhudF2F6wedbSHm1HHZ0C6aJ7K67zcDNidMzVcxWdGr+htW9n21klm+bOn+Rx4CBsAntZd3rEQ==
-  dependencies:
-    "@babel/helper-module-transforms" "^7.16.7"
-    "@babel/helper-plugin-utils" "^7.16.7"
-
-"@babel/plugin-transform-modules-umd@^7.17.12":
+"@babel/plugin-transform-modules-umd@7.17.12", "@babel/plugin-transform-modules-umd@^7.17.12":
   version "7.17.12"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-umd/-/plugin-transform-modules-umd-7.17.12.tgz#b37be3ecf198c1fea10e6268461729ced05644e1"
   integrity sha512-BnsPkrUHsjzZGpnrmJeDFkOMMljWFHPjDc9xDcz71/C+ybF3lfC3V4m3dwXPLZrE5b3bgd4V+3/Pj+3620d7IA==
