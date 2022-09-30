@@ -8,7 +8,7 @@ export const enum TouchSwipeEventType {
 
 export default class TouchSweep {
 	private element: HTMLElement;
-	private eventData: Record<string, any>;
+	private eventData: Record<string, unknown>;
 	private threshold: number;
 	private coords: Record<'startX' | 'startY' | 'endX' | 'endY', number>;
 

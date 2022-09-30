@@ -24,12 +24,17 @@
 		"url": "github:scriptex/touchsweep"
 	},
 	"scripts": {
+		"lint": "eslint 'src/**/*.ts'",
 		"copy": "cp -r dist demo",
 		"clean": "rm -rf dist && rm -rf demo/dist",
 		"build": "yarn clean && tsc --skipLibCheck && yarn copy"
 	},
 	"dependencies": {},
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "5.38.1",
+		"@typescript-eslint/parser": "5.38.1",
+		"eslint": "8.24.0",
+		"eslint-config-prettier": "8.5.0",
 		"typescript": "4.8.4"
 	}
 }
