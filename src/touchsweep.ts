@@ -72,21 +72,26 @@ export default class TouchSweep {
 	private getEventName(): TouchSwipeEventType | '' {
 		const threshold = this.threshold;
 		const { startX, startY, endX, endY } = this.coords;
+		const distanceX = Math.abs(endX - startX);
+		const distanceY = Math.abs(endY - startY);
+		const isSwipeX = distanceX > distanceY;
 
-		if (endX < startX && Math.abs(endX - startX) > threshold) {
-			return TouchSwipeEventType.left;
-		}
+		if (isSwipeX) {
+			if (endX < startX && distanceX > threshold) {
+				return TouchSwipeEventType.left;
+			}
 
-		if (endX > startX && Math.abs(endX - startX) > threshold) {
-			return TouchSwipeEventType.right;
-		}
+			if (endX > startX && distanceX > threshold) {
+				return TouchSwipeEventType.right;
+			}
+		} else {
+			if (endY < startY && distanceY > threshold) {
+				return TouchSwipeEventType.up;
+			}
 
-		if (endY < startY && Math.abs(endY - startY) > threshold) {
-			return TouchSwipeEventType.up;
-		}
-
-		if (endY > startY && Math.abs(endY - startY) > threshold) {
-			return TouchSwipeEventType.down;
+			if (endY > startY && distanceY > threshold) {
+				return TouchSwipeEventType.down;
+			}
 		}
 
 		if (endY === startY && endX === startX) {

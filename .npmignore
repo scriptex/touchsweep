@@ -21,6 +21,7 @@ Thumbs.db
 .github
 _config.yml
 _.config.yml
+.codebeatsettings
 .editorconfig
 .eslintrc
 .gitattributes
@@ -39,3 +40,4 @@ yarn.lock
 
 !dist
 demo
+rollup.config.mjs
