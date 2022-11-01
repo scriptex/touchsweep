@@ -1,6 +1,6 @@
 {
 	"name": "touchsweep",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Super tiny vanilla JS module to detect swipe direction",
 	"keywords": [
 		"Touch swipe",
@@ -27,14 +27,17 @@
 		"lint": "eslint 'src/**/*.ts'",
 		"copy": "cp -r dist demo",
 		"clean": "rm -rf dist && rm -rf demo/dist",
-		"build": "yarn clean && tsc --skipLibCheck && yarn copy"
+		"build": "yarn clean && rollup -c && yarn copy"
 	},
 	"dependencies": {},
 	"devDependencies": {
+		"@rollup/plugin-commonjs": "23.0.2",
+		"@rollup/plugin-typescript": "9.0.2",
 		"@typescript-eslint/eslint-plugin": "5.42.0",
 		"@typescript-eslint/parser": "5.42.0",
 		"eslint": "8.26.0",
 		"eslint-config-prettier": "8.5.0",
+		"rollup": "3.2.5",
 		"typescript": "4.8.4"
 	}
 }
