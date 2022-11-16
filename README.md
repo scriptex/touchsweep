@@ -48,33 +48,44 @@ const data = {
 };
 const touchThreshold = 20;
 
-const touchSwipeInstance = new TouchSweep(area, data, touchThreshold);
+const touchSweepInstance = new TouchSweep(area, data, touchThreshold);
 
 // Then listen for custom swipe events and do your magic:
 
 area.addEventListener('swipeleft', event => {
 	// You have swiped left
-	// Custom event data is located in event.detail
+	// Custom event data is located in `event.detail`
+	// Details about coordinates are also available under `event.detail`
 });
 
 area.addEventListener('swiperight', event => {
 	// You have swiped right
-	// Custom event data is located in event.detail
+	// Custom event data is located in `event.detail`
+	// Details about coordinates are also available under `event.detail`
 });
 
 area.addEventListener('swipedown', event => {
 	// You have swiped down
-	// Custom event data is located in event.detail
+	// Custom event data is located in `event.detail`
+	// Details about coordinates are also available under `event.detail`
 });
 
 area.addEventListener('swipeup', event => {
 	// You have swiped up
-	// Custom event data is located in event.detail
+	// Custom event data is located in `event.detail`
+	// Details about coordinates are also available under `event.detail`
+});
+
+area.addEventListener('swipemove', event => {
+	// You are swiped continuously
+	// Custom event data is located in `event.detail`
+	// Details about coordinates are also available under `event.detail`
 });
 
 area.addEventListener('tap', event => {
 	// You have tapped
-	// Custom event data is located in event.detail
+	// Custom event data is located in `event.detail`
+	// Details about coordinates are also available under `event.detail`
 });
 ```
 
@@ -90,20 +101,20 @@ The module constructor accepts three (3) arguments:
 
 TouchSweep provides a minimal API for you to use.
 
-The `TouchSwipe` instance exposes two public methods which allow you to add or to remove all event listeners responsible for the module functionality.
+The `TouchSweep` instance exposes two public methods which allow you to add or to remove all event listeners responsible for the module functionality.
 
-This is useful in cases where you want to remove the `TouchSwipe` container/area from the DOM and prevent possible memory leaks by removing all event listeners related to this DOM element.
+This is useful in cases where you want to remove the `TouchSweep` container/area from the DOM and prevent possible memory leaks by removing all event listeners related to this DOM element.
 
 In order to remove all previously attached event listeners:
 
 ```javascript
-touchSwipeInstance.unbind();
+touchSweepInstance.unbind();
 ```
 
 In order to add all previously removed event listeners:
 
 ```javascript
-touchSwipeInstance.bind();
+touchSweepInstance.bind();
 ```
 
 ## Supported Browsers
@@ -114,7 +125,11 @@ Currently all evergreen browsers are supported.
 
 There is a simple demo illustrating how the TouchSweep library works.
 
-Check it out [here](https://github.com/scriptex/touchsweep/blob/master/demo/index.html)
+Check the code [here](https://github.com/scriptex/touchsweep/blob/master/demo/index.html) and the live demo [here](https://touchsweep.atanas.info)
+
+## Typescript
+
+`TouchSweep` is written in Typescript and provides full Typescript support out of the box.
 
 ## LICENSE
 

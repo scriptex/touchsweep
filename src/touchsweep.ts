@@ -1,29 +1,46 @@
 export const enum TouchSwipeEventType {
-	tap = 'tap',
 	up = 'swipeup',
+	tap = 'tap',
 	down = 'swipedown',
+	move = 'swipemove',
 	left = 'swipeleft',
 	right = 'swiperight'
 }
 
+export type TouchSwipeCoordinateType = 'startX' | 'startY' | 'moveX' | 'moveY' | 'endX' | 'endY';
+
+export type TouchSwipeCoordinates = Record<'x' | 'y', number>;
+
+const defaultCoordinates = {
+	endX: 0,
+	endY: 0,
+	moveX: 0,
+	moveY: 0,
+	startX: 0,
+	startY: 0
+};
+
 export default class TouchSweep {
+	public eventData: Record<string, unknown>;
+
 	private element: HTMLElement;
-	private eventData: Record<string, unknown>;
 	private threshold: number;
-	private coords: Record<'startX' | 'startY' | 'endX' | 'endY', number>;
+
+	private coords: Record<TouchSwipeCoordinateType, number>;
+	private isMoving: boolean;
+	private moveCoords: TouchSwipeCoordinates;
 
 	constructor(element = document.body, data = {}, threshold = 40) {
 		this.element = element;
 		this.eventData = data;
 		this.threshold = threshold;
-		this.coords = {
-			startX: 0,
-			startY: 0,
-			endX: 0,
-			endY: 0
-		};
+
+		this.coords = defaultCoordinates;
+		this.isMoving = false;
+		this.moveCoords = { x: 0, y: 0 };
 
 		this.onStart = this.onStart.bind(this);
+		this.onMove = this.onMove.bind(this);
 		this.onEnd = this.onEnd.bind(this);
 
 		this.bind();
@@ -32,44 +49,42 @@ export default class TouchSweep {
 	}
 
 	public bind(): void {
-		this.element.addEventListener('touchstart', this.onStart, false);
-		this.element.addEventListener('touchend', this.onEnd, false);
-		this.element.addEventListener('mousedown', this.onStart, false);
-		this.element.addEventListener('mouseup', this.onEnd, false);
+		const { element } = this;
+
+		element.addEventListener('touchstart', this.onStart, false);
+		element.addEventListener('touchmove', this.onMove, false);
+		element.addEventListener('touchend', this.onEnd, false);
+		element.addEventListener('mousedown', this.onStart, false);
+		element.addEventListener('mousemove', this.onMove, false);
+		element.addEventListener('mouseup', this.onEnd, false);
 	}
 
 	public unbind(): void {
-		this.element.removeEventListener('touchstart', this.onStart, false);
-		this.element.removeEventListener('touchend', this.onEnd, false);
-		this.element.removeEventListener('mousedown', this.onStart, false);
-		this.element.removeEventListener('mouseup', this.onEnd, false);
+		const { element } = this;
+
+		element.removeEventListener('touchstart', this.onStart, false);
+		element.removeEventListener('touchmove', this.onMove, false);
+		element.removeEventListener('touchend', this.onEnd, false);
+		element.removeEventListener('mousedown', this.onStart, false);
+		element.removeEventListener('mousemove', this.onMove, false);
+		element.removeEventListener('mouseup', this.onEnd, false);
 	}
 
-	private getCoords(event: MouseEvent | TouchEvent): Record<'x' | 'y', number> {
+	private getCoords(event: MouseEvent | TouchEvent): TouchSwipeCoordinates {
+		const result = this.moveCoords;
 		const isMouseEvent = 'pageX' in event;
-		const x = isMouseEvent ? event.pageX : event.changedTouches[0].screenX;
-		const y = isMouseEvent ? event.pageY : event.changedTouches[0].screenY;
 
-		return { x, y };
+		result.x = isMouseEvent ? event.pageX : event.changedTouches[0].screenX;
+		result.y = isMouseEvent ? event.pageY : event.changedTouches[0].screenY;
+
+		return result;
 	}
 
-	private onStart(event: MouseEvent | TouchEvent): void {
-		const { x, y } = this.getCoords(event);
-
-		this.coords.startX = x;
-		this.coords.startY = y;
+	private resetCoords(): void {
+		this.coords = defaultCoordinates;
 	}
 
-	private onEnd(event: MouseEvent | TouchEvent): void {
-		const { x, y } = this.getCoords(event);
-
-		this.coords.endX = x;
-		this.coords.endY = y;
-
-		this.dispatch();
-	}
-
-	private getEventName(): TouchSwipeEventType | '' {
+	private getEndEventName(): TouchSwipeEventType | '' {
 		const threshold = this.threshold;
 		const { startX, startY, endX, endY } = this.coords;
 		const distanceX = Math.abs(endX - startX);
@@ -101,17 +116,58 @@ export default class TouchSweep {
 		return '';
 	}
 
-	private dispatch(): void {
-		const eventName = this.getEventName();
+	private dispatchEvent(type: TouchSwipeEventType): void {
+		const event = new CustomEvent(type, {
+			detail: {
+				...this.eventData,
+				coords: this.coords
+			}
+		});
+
+		this.element.dispatchEvent(event);
+	}
+
+	private dispatchEnd(): void {
+		const eventName = this.getEndEventName();
 
 		if (!eventName) {
 			return;
 		}
 
-		const event = new CustomEvent(eventName, {
-			detail: this.eventData
-		});
+		this.dispatchEvent(eventName);
+	}
 
-		this.element.dispatchEvent(event);
+	private onStart(event: MouseEvent | TouchEvent): void {
+		const { x, y } = this.getCoords(event);
+
+		this.isMoving = true;
+
+		this.coords.startX = x;
+		this.coords.startY = y;
+	}
+
+	private onMove(event: MouseEvent | TouchEvent): void {
+		if (!this.isMoving) {
+			return;
+		}
+
+		const { x, y } = this.getCoords(event);
+
+		this.coords.moveX = x;
+		this.coords.moveY = y;
+
+		this.dispatchEvent(TouchSwipeEventType.move);
+	}
+
+	private onEnd(event: MouseEvent | TouchEvent): void {
+		const { x, y } = this.getCoords(event);
+
+		this.isMoving = false;
+
+		this.coords.endX = x;
+		this.coords.endY = y;
+
+		this.dispatchEnd();
+		this.resetCoords();
 	}
 }

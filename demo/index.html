@@ -188,6 +188,11 @@ area.addEventListener('swipedown', event => {
   // Swipe direction: down
 });
 
+area.addEventListener('swipemove', event => {
+	// Swipe direction: none
+	// Swipe event: swipemove
+});
+
 area.addEventListener('tap', event => {
   // Swipe direction: none
 });
@@ -208,6 +213,10 @@ area.addEventListener('tap', event => {
 		<social-links></social-links>
 
 		<script type="text/javascript">
+			function stringify(data) {
+				return JSON.stringify(data, null, 2);
+			}
+
 			requirejs(['./dist/touchsweep.js'], ({ default: TouchSweep }) => {
 				var ts = document.getElementById('touchsweep');
 				var res = document.getElementById('result');
@@ -219,57 +228,86 @@ area.addEventListener('tap', event => {
 				ts.addEventListener('swipeleft', event => {
 					instance.eventData.value = 2;
 
-					res.innerHTML = `{
-  "direction": "left",
-  "data": {
-    value: ${event.detail.value}
-  }
-}`;
+					res.innerHTML = stringify({
+						direction: 'left',
+						data: event.detail
+					});
 				});
 
 				ts.addEventListener('swiperight', event => {
 					instance.eventData.value = 3;
 
-					res.innerHTML = `{
-  "direction": "right",
-  "data": {
-    value: ${event.detail.value}
-  }
-}`;
+					res.innerHTML = stringify({
+						direction: 'right',
+						data: event.detail
+					});
 				});
 
 				ts.addEventListener('swipeup', event => {
 					instance.eventData.value = 4;
 
-					res.innerHTML = `{
-  "direction": "up",
-  "data": {
-    value: ${event.detail.value}
-  }
-}`;
+					res.innerHTML = stringify({
+						direction: 'up',
+						data: event.detail
+					});
 				});
 
 				ts.addEventListener('swipedown', event => {
 					instance.eventData.value = 5;
 
-					res.innerHTML = `{
-  "direction": "down",
-  "data": {
-    value: ${event.detail.value}
-  }
-}`;
+					res.innerHTML = stringify({
+						direction: 'down',
+						data: event.detail
+					});
+				});
+
+				ts.addEventListener('swipemove', event => {
+					instance.eventData.value = 1;
+
+					var coords = event.detail.coords;
+					var direction = '';
+					var distanceX = Math.abs(coords.moveX - coords.startX);
+					var distanceY = Math.abs(coords.moveY - coords.startY);
+					var isSwipeX = distanceX > distanceY;
+
+					if (isSwipeX) {
+						if (coords.moveX < coords.startX) {
+							direction = 'left';
+						}
+
+						if (coords.moveX > coords.startX) {
+							direction = 'right';
+						}
+					} else {
+						if (coords.moveY < coords.startY) {
+							direction = 'up';
+						}
+
+						if (coords.moveY > coords.startY) {
+							direction = 'down';
+						}
+					}
+
+					const result = {
+						event: 'swipemove',
+						data: event.detail
+					};
+
+					if (direction) {
+						result.direction = direction;
+					}
+
+					res.innerHTML = stringify(result);
 				});
 
 				ts.addEventListener('tap', event => {
 					instance.eventData.value = 1;
 
-					res.innerHTML = `{
-  "direction": "none",
-  "event": "tap",
-  "data": {
-    value: ${event.detail.value}
-  }
-}`;
+					res.innerHTML = stringify({
+						direction: 'none',
+						event: 'tap',
+						data: event.detail
+					});
 				});
 			});
 		</script>
