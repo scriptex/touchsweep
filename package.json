@@ -35,7 +35,7 @@
 		"@rollup/plugin-typescript": "11.0.0",
 		"@typescript-eslint/eslint-plugin": "5.57.0",
 		"@typescript-eslint/parser": "5.57.0",
-		"eslint": "8.36.0",
+		"eslint": "8.37.0",
 		"eslint-config-prettier": "8.8.0",
 		"rollup": "3.20.2",
 		"typescript": "5.0.2"
