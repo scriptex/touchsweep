@@ -38,6 +38,6 @@
 		"eslint": "8.37.0",
 		"eslint-config-prettier": "8.8.0",
 		"rollup": "3.20.2",
-		"typescript": "5.0.2"
+		"typescript": "5.0.3"
 	}
 }
