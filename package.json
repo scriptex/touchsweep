@@ -32,7 +32,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "25.0.2",
-		"@rollup/plugin-typescript": "11.1.1",
+		"@rollup/plugin-typescript": "11.1.2",
 		"@typescript-eslint/eslint-plugin": "5.60.1",
 		"@typescript-eslint/parser": "5.60.1",
 		"eslint": "8.43.0",
