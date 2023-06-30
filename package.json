@@ -37,7 +37,7 @@
 		"@typescript-eslint/parser": "5.60.1",
 		"eslint": "8.43.0",
 		"eslint-config-prettier": "8.8.0",
-		"rollup": "3.25.3",
+		"rollup": "3.26.0",
 		"typescript": "5.1.6"
 	}
 }
