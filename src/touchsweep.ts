@@ -51,8 +51,8 @@ export default class TouchSweep {
 	public bind(): void {
 		const { element } = this;
 
-		element.addEventListener('touchstart', this.onStart, false);
-		element.addEventListener('touchmove', this.onMove, false);
+		element.addEventListener('touchstart', this.onStart, { passive: true });
+		element.addEventListener('touchmove', this.onMove, { passive: true });
 		element.addEventListener('touchend', this.onEnd, false);
 		element.addEventListener('mousedown', this.onStart, false);
 		element.addEventListener('mousemove', this.onMove, false);
