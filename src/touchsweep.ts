@@ -45,7 +45,7 @@ export default class TouchSweep {
 
 		this.bind();
 
-		return this;
+		return this; //NOSONAR
 	}
 
 	public bind(): void {
@@ -62,12 +62,13 @@ export default class TouchSweep {
 	public unbind(): void {
 		const { element } = this;
 
-		element.removeEventListener('touchstart', this.onStart, { passive: true });
-		element.removeEventListener('touchmove', this.onMove, { passive: true });
-		element.removeEventListener('touchend', this.onEnd, { passive: true });
-		element.removeEventListener('mousedown', this.onStart, { passive: true });
-		element.removeEventListener('mousemove', this.onMove, { passive: true });
-		element.removeEventListener('mouseup', this.onEnd, { passive: true });
+		// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener#matching_event_listeners_for_removal
+		element.removeEventListener('touchstart', this.onStart, false);
+		element.removeEventListener('touchmove', this.onMove, false);
+		element.removeEventListener('touchend', this.onEnd, false);
+		element.removeEventListener('mousedown', this.onStart, false);
+		element.removeEventListener('mousemove', this.onMove, false);
+		element.removeEventListener('mouseup', this.onEnd, false);
 	}
 
 	private getCoords(event: MouseEvent | TouchEvent): TouchSwipeCoordinates {
@@ -84,7 +85,8 @@ export default class TouchSweep {
 		this.coords = defaultCoordinates;
 	}
 
-	private getEndEventName(): TouchSwipeEventType | '' {
+	// prettier-ignore
+	private getEndEventName(): TouchSwipeEventType | '' { //NOSONAR
 		const threshold = this.threshold;
 		const { startX, startY, endX, endY } = this.coords;
 		const distanceX = Math.abs(endX - startX);
