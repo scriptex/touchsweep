@@ -53,21 +53,21 @@ export default class TouchSweep {
 
 		element.addEventListener('touchstart', this.onStart, { passive: true });
 		element.addEventListener('touchmove', this.onMove, { passive: true });
-		element.addEventListener('touchend', this.onEnd, false);
-		element.addEventListener('mousedown', this.onStart, false);
-		element.addEventListener('mousemove', this.onMove, false);
-		element.addEventListener('mouseup', this.onEnd, false);
+		element.addEventListener('touchend', this.onEnd, { passive: true });
+		element.addEventListener('mousedown', this.onStart, { passive: true });
+		element.addEventListener('mousemove', this.onMove, { passive: true });
+		element.addEventListener('mouseup', this.onEnd, { passive: true });
 	}
 
 	public unbind(): void {
 		const { element } = this;
 
-		element.removeEventListener('touchstart', this.onStart, false);
-		element.removeEventListener('touchmove', this.onMove, false);
-		element.removeEventListener('touchend', this.onEnd, false);
-		element.removeEventListener('mousedown', this.onStart, false);
-		element.removeEventListener('mousemove', this.onMove, false);
-		element.removeEventListener('mouseup', this.onEnd, false);
+		element.removeEventListener('touchstart', this.onStart, { passive: true });
+		element.removeEventListener('touchmove', this.onMove, { passive: true });
+		element.removeEventListener('touchend', this.onEnd, { passive: true });
+		element.removeEventListener('mousedown', this.onStart, { passive: true });
+		element.removeEventListener('mousemove', this.onMove, { passive: true });
+		element.removeEventListener('mouseup', this.onEnd, { passive: true });
 	}
 
 	private getCoords(event: MouseEvent | TouchEvent): TouchSwipeCoordinates {
