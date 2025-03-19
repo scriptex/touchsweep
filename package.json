@@ -31,12 +31,12 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "28.0.2",
+		"@rollup/plugin-commonjs": "28.0.3",
 		"@rollup/plugin-typescript": "12.1.2",
-		"@typescript-eslint/eslint-plugin": "8.26.0",
-		"@typescript-eslint/parser": "8.26.0",
+		"@typescript-eslint/eslint-plugin": "8.26.1",
+		"@typescript-eslint/parser": "8.26.1",
 		"eslint": "9.21.0",
-		"eslint-config-prettier": "10.0.2",
+		"eslint-config-prettier": "10.0.3",
 		"rollup": "4.34.9",
 		"tslib": "2.8.1",
 		"typescript": "5.8.2"
