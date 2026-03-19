@@ -31,11 +31,11 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "29.0.1",
+		"@rollup/plugin-commonjs": "29.0.2",
 		"@rollup/plugin-typescript": "12.3.0",
 		"@typescript-eslint/eslint-plugin": "8.56.1",
 		"@typescript-eslint/parser": "8.56.1",
-		"eslint": "10.0.2",
+		"eslint": "10.0.3",
 		"eslint-config-prettier": "10.1.8",
 		"globals": "17.4.0",
 		"rollup": "4.59.0",
